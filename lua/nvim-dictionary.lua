@@ -111,33 +111,33 @@ function M.get_dictionary()
 	if word ~= '' then
 		M.fetch_dictionary(word)
 
-		file = io.open("words.txt", "a+")
-		io.input(file)
-		exist_words = io.read()
+-- 		file = io.open("words.txt", "a+")
+-- 		io.input(file)
+-- 		exist_words = io.read()
 
-		is_existed = false
-		if exist_words ~= nil then
-			for token in string.gmatch(exist_words, "[^,]+") do
-				if word == token then
-					is_existed = true
-					print('existed')
-					break
-				end
-			end
-		end
+-- 		is_existed = false
+-- 		if exist_words ~= nil then
+-- 			for token in string.gmatch(exist_words, "[^,]+") do
+-- 				if word == token then
+-- 					is_existed = true
+-- 					print('existed')
+-- 					break
+-- 				end
+-- 			end
+-- 		end
 		
-		if not is_existed then
-			print('not existed')
-			io.output(file)
+-- 		if not is_existed then
+-- 			print('not existed')
+-- 			io.output(file)
 
-			if exist_words == nil then
-				io.write(word)
-			else
-				io.write(',' .. word)
-			end
-		end
+-- 			if exist_words == nil then
+-- 				io.write(word)
+-- 			else
+-- 				io.write(',' .. word)
+-- 			end
+-- 		end
 
-		io.close(file)
+-- 		io.close(file)
 	end
 
 	

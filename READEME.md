@@ -2,6 +2,8 @@
 
 📖 Find definition of words in nvim
 
+![Main](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/nvim-dictionary.png)
+
 ## Usage
 
 Firstly, mapping ```get_dictionary()``` function in visual mode.
@@ -12,12 +14,24 @@ vim.api.nvim_set_keymap('v', '<M-d>', [[<Cmd>lua require('nvim-dictionary').get_
 
 Then, change mode to visual, select word, and press keys to call function
 
+## Setup
+
+```lua
+local dictionary = require('nvim-dictionary')
+
+dictionary.setup({
+	part_of_speech = '#5AF78E',
+	phonetic = '#57C7FF',
+})
+```
+
 ## TODO
 
 - [ ] Support normal mode
 - [ ] Cache
 - [ ] Strictly validate word
 - [ ] Mapping in config
+- [ ] Float window
 
 ## Contributing
 
