@@ -2,7 +2,18 @@
 
 📖 Find definition of words in nvim
 
-![Main](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/nvim-dictionary.png)
+![Main](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/nvim-dictionary/nvim-dictionary.png)
+
+## Install
+
+> rest.nvim requires Neovim >= 0.5 to work.
+
+### Dependencies
+
+- System-wide
+	- curl
+- Other plugins
+	- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 
 ## Usage
 

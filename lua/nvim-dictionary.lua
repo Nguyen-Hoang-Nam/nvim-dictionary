@@ -1,8 +1,8 @@
 local curl = require('plenary.curl')
 local M = {}
 
-M.hl_part_of_speech = 'highlight PartOfSpeech guifg=green'
-M.hl_phonetic = 'highlight Phonetic guifg=blue'
+M.hl_part_of_speech = 'highlight PartOfSpeech guifg=#5AF78E'
+M.hl_phonetic = 'highlight Phonetic guifg=#57C7FF'
 
 function M.setup(configs)
 	if configs.part_of_speech ~= nil then
@@ -29,6 +29,7 @@ end
 function M.get_word()
     local vim_mode = vim.api.nvim_eval('mode()')
     local word = ''
+		local err
 
     if vim_mode == "n" then
         print('not implement yet')
@@ -83,13 +84,13 @@ function M.fetch_dictionary(word)
 
 	local body = res.body
 
-	phonetics = {}
+	local phonetics = {}
 	for raw_phonetic in string.gmatch(body, "text\":\"/.-/\"") do
 		phonetic = string.match(raw_phonetic, "/.-/")
 		phonetics[#phonetics + 1] = phonetic
 	end
 
-	definitions = {}
+	local definitions = {}
 	for raw_definition in string.gmatch(body, "partOfSpeech\":\".-%[{\"definition\":\".-\"") do
 		definition = {}
 
@@ -101,7 +102,7 @@ function M.fetch_dictionary(word)
 
 		definitions[#definitions + 1] = definition
 	end
-	
+
 	M.display_dictionary(word, phonetics, definitions)
 end
 
@@ -125,7 +126,7 @@ function M.get_dictionary()
 -- 				end
 -- 			end
 -- 		end
-		
+
 -- 		if not is_existed then
 -- 			print('not existed')
 -- 			io.output(file)
@@ -140,7 +141,7 @@ function M.get_dictionary()
 -- 		io.close(file)
 	end
 
-	
+
 end
 
 return M
