@@ -32,8 +32,9 @@ function M.get_word()
 		local err
 
     if vim_mode == "n" then
-        print('not implement yet')
-        return nil
+        -- print('not implement yet')
+        -- return nil
+	local word = vim.fn.expand("<cword>")
     elseif vim_mode == "v" then
         local start_position = vim.api.nvim_eval('getpos(\"v\")')
         local end_position = vim.api.nvim_eval('getpos(\".\")')
